@@ -7,6 +7,8 @@ import { GroupCard } from "@/src/components/GroupCard";
 import { Highlight } from "@/src/components/Highlight";
 import { Header } from "@/src/components/Header";
 import { ListEmpty } from "@/src/components/ListEmpty";
+import { Button } from "@/src/components/Button";
+
 
 export default function Groups() {
     const [groups, setGroups] = useState<string[]>([]);
@@ -36,6 +38,9 @@ export default function Groups() {
        )}
      />
 
+       <Button 
+       title="Criar nova turma"
+       />
         </Container>
     );
 }
