@@ -1,4 +1,4 @@
-import {NewGroup} from "@/src/screens/NewGroup";
+import {Players} from "@/src/screens/Players";
 import theme from "@/src/theme";
 import { ThemeProvider } from 'styled-components'
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
@@ -17,7 +17,7 @@ const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold});
       backgroundColor="trasnparent"
       translucent
       />
-     {fontsLoaded ? <NewGroup /> : <Loading />}
+     {fontsLoaded ? <Players /> : <Loading />}
     </ThemeProvider>
     
   );
