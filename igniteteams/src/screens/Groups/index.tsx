@@ -1,9 +1,12 @@
+import React from "react";
 import { Container } from "./styles";
+import { Header } from "@/src/components/Header";
 
 export default function Groups() {
     return (
         <Container>
-            
+            <Header />
+
         </Container>
     );
 }
