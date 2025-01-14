@@ -7,7 +7,12 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "ts-styled-plugin", "validate": false
+      }
+    ]
   },
   "include": [
     "**/*.ts",
