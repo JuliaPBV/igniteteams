@@ -10,13 +10,13 @@ type Props = {
 export const Container = styled(TouchableOpacity)<Props>`
   flex: 1;
 
-  min-height: 56px;
-  max-height: 56px;
+  min-height: 56;
+  max-height: 56;
 
   background-color: ${({ theme, type }) =>
     type === "PRIMARY" ? theme.COLORS.GREEN_700 : theme.COLORS.GREEN_700};
 
-  border-radius: 6px;
+  border-radius: 6;
 
   justify-content: center;
   align-items: center;

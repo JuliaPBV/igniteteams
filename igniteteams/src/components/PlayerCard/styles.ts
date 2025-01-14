@@ -2,15 +2,15 @@ import styled, { css } from "styled-components/native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 export const Container = styled.View`
-  width: 100%;
-  height: 56px;
+  width: 100;
+  height: 56;
 
   background-color: ${({ theme }) => theme.GRAY_500};
-  border-radius: 6px;
+  border-radius: 6;
   flex-direction: row;
   align-items: center;
 
-  margin-bottom: 16px;
+  margin-bottom: 16;
 `;
 
 export const Name = styled.Text`
@@ -26,6 +26,6 @@ export const Icon = styled(MaterialIcons).attrs(({ theme }) => ({
   size: 24,
   color: theme.COLORS.GRAY_200,
 }))`
-  margin-left: 16px;
-  margin-right: 4px;
+  margin-left: 16;
+  margin-right: 4;
 `;

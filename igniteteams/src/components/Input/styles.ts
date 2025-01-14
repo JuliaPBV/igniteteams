@@ -4,8 +4,8 @@ import styled, { css } from "styled-components/native";
 export const Container = styled(TextInput)`
   flex: 1;
 
-  min-height: 56px;
-  max-height: 56px;
+  min-height: 56;
+  max-height: 56;
 
   ${({ theme }) => css`
     background-color: ${theme.COLORS.GRAY_700};
@@ -15,6 +15,6 @@ export const Container = styled(TextInput)`
     font-size: ${theme.FONT_SIZE.MD}px;
   `}
 
-  border-radius: 4px;
-  padding: 16px;
+  border-radius: 4;
+  padding: 16;
 `;

@@ -12,11 +12,11 @@ export const Container = styled(TouchableOpacity)<FilterStyleProps>`
       border: 1px solid ${theme.COLORS.GREEN_700};
     `}
 
-  border-radius: 4px;
-  margin-right: 12px;
+  border-radius: 4;
+  margin-right: 12;
 
-  height: 38px;
-  width: 70px;
+  height: 38;
+  width: 70;
 
   align-items: center;
   justify-content: center;

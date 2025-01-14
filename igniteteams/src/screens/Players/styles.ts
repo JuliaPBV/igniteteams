@@ -4,26 +4,26 @@ export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.GRAY_600};
 
-  padding: 24px;
+  padding: 24;
 `;
 
 export const Form = styled.View`
-width: 100%
-background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+  width: 100;
+  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
 
-flex-direction: row;
-justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 
-border-radius: 6px;
+  border-radius: 6;
 `;
 
 export const HeaderList = styled.View`
-  width: 100%;
+  width: 100;
 
   flex-direction: row;
   align-items: center;
 
-  margin: 32px 0 12px;
+  margin: 32 0 12;
 `;
 
 export const NumbersOfPlayers = styled.Text`

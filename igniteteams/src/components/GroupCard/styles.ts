@@ -3,17 +3,17 @@ import styled, { css } from "styled-components/native";
 import { UsersThree } from "phosphor-react-native";
 
 export const Container = styled(TouchableOpacity)`
-  width: 100%;
-  height: 90px;
+  width: 100;
+  height: 90;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
-  border-radius: 6px;
+  border-radius: 6;
 
   flex-direction: row;
   align-items: center;
 
-  padding: 24px;
-  margin-bottom: 12px;
+  padding: 24;
+  margin-bottom: 12;
 `;
 
 export const Title = styled.Text`
@@ -29,5 +29,5 @@ export const Icon = styled(UsersThree).attrs(({ theme }) => ({
   color: theme.COLORS.GREEN_700,
   weight: "fill",
 }))`
-  margin-right: 20px;
+  margin-right: 20;
 `;

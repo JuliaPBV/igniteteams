@@ -9,13 +9,13 @@ type Props = {
 };
 
 export const Container = styled(TouchableOpacity)`
-  width: 56px;
-  height: 56px;
+  width: 56;
+  height: 56;
 
   justify-content: center;
   align-items: center;
 
-  margin-left: 12px;
+  margin-left: 12;
 `;
 
 export const Icon = styled(MaterialIcons).attrs(({ theme, type }) => ({
