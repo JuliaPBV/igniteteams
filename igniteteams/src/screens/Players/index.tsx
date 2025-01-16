@@ -5,12 +5,12 @@ import { Highlight } from "@/src/components/Highlight";
 import { Input } from "@/src/components/Input";
 import { Filter } from "@/src/components/Filter";
 import { FlatList } from "react-native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PlayerCard } from "@/src/components/PlayerCard";
 import { ListEmpty } from "@/src/components/ListEmpty";
 import { Button } from "@/src/components/Button";
 import { useRoute } from "@react-navigation/native";
-import { Alert } from "react-native";
+import { Alert, TextInput, Keyboard } from "react-native";
 import { AppError } from "@/src/utils/AppError";
 import { playerAddByGroup } from "@/src/storage/player/playerAddByGroup";
 import { playersGetByGroupAndTeams } from "./playersGetByGroupAndTeams";
@@ -28,6 +28,8 @@ export function Players() {
   const route = useRoute();
   const { group } = route.params as RouteParams;
 
+  const newPlayerNameInputRef = useRef<TextInput>(null);
+
   async function handleAddPlayer() {
     if (newPlayerName.trim().length === 0) {
       return Alert.alert(
@@ -43,6 +45,9 @@ export function Players() {
 
     try {
       await playerAddByGroup(newPlayer, group);
+      newPlayerNameInputRef.current?.blur();
+
+      setNewPlayerName("");
       fetchPlayersByTeam();
     } catch (error) {
       if (error instanceof AppError) {
@@ -80,7 +85,15 @@ export function Players() {
       />
 
       <Form>
-        <Input placeholder="Nome da pessoa" autoCorrect={false} />
+        <Input
+          inputRef={newPlayerNameInputRef}
+          onChangeText={setNewPlayerName}
+          value={newPlayerName}
+          placeholder="Nome da pessoa"
+          autoCorrect={false}
+          onSubmitEditing={handleAddPlayer}
+          returnKeyType="done"
+        />
 
         <ButtonIcon icon="add" onPress={handleAddPlayer} />
       </Form>
