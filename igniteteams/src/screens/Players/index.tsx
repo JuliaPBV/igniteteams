@@ -13,8 +13,9 @@ import { useRoute } from "@react-navigation/native";
 import { Alert, TextInput, Keyboard } from "react-native";
 import { AppError } from "@/src/utils/AppError";
 import { playerAddByGroup } from "@/src/storage/player/playerAddByGroup";
-import { playersGetByGroupAndTeams } from "./playersGetByGroupAndTeams";
+import { playersGetByGroupAndTeams } from "../../storage/player/playersGetByGroupAndTeams";
 import { PlayerStorageDTO } from "@/src/storage/player/PlayerStorageDTO";
+import { playerRemoveByGroup } from "@/src/storage/player/playerRemoveByGroup";
 
 type RouteParams = {
   group: string;
@@ -71,6 +72,15 @@ export function Players() {
     }
   }
 
+  async function handlePlayerRemove(playerName: string) {
+    try {
+      await playerRemoveByGroup(playerName, group);
+      fetchPlayersByTeam();
+    } catch (error) {
+      Alert.alert("Remover Pessoa", "Não foi possivel remover essa pessoa.");
+    }
+  }
+
   useEffect(() => {
     fetchPlayersByTeam();
   }, [team]);
@@ -119,7 +129,10 @@ export function Players() {
         data={players}
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
-          <PlayerCard name={item.name} onRemove={() => {}} />
+          <PlayerCard
+            name={item.name}
+            onRemove={() => handlePlayerRemove(item.name)}
+          />
         )}
         ListEmptyComponent={() => (
           <ListEmpty message="Não há pessoas nesse time" />
