@@ -32,6 +32,7 @@
     "expo-system-ui": "~4.0.7",
     "expo-web-browser": "~14.0.2",
     "jest-environment-node": "27.5.1",
+    "phosphor-react-native": "^2.2.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "0.76.6",
@@ -41,7 +42,8 @@
     "react-native-screens": "~4.4.0",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "react-native-svg": "15.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
