@@ -1,6 +1,6 @@
 import Players from "@/src/screens/Players";
 import { ThemeProvider } from "styled-components";
-import theme from "../../src/theme";
+import theme from "../../src/theme/theme";
 import {
   useFonts,
   Roboto_400Regular,
