@@ -1,4 +1,4 @@
-import Groups from "@/src/screens/Groups";
+import Players from "@/src/screens/Players";
 import { ThemeProvider } from "styled-components";
 import theme from "../../src/theme";
 import {
@@ -19,7 +19,7 @@ export default function App() {
         backgroundColor="trasnparent"
         translucent
       />
-      {fontsLoaded ? <Groups /> : <Loading />}
+      {fontsLoaded ? <Players /> : <Loading />}
     </ThemeProvider>
   );
 }
