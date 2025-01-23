@@ -68,3 +68,6 @@ export default function Groups() {
     </Container>
   );
 }
+function setIsLoading(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}

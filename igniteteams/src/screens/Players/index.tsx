@@ -63,7 +63,10 @@ export default function Players() {
 
   async function fetchPlayersByTeam() {
     try {
+      setIsLoading(true);
+
       const playersByTeam = await playersGetByGroupAndTeam(group, team);
+
       setPlayers(playersByTeam);
     } catch (error) {
       console.log(error);
@@ -72,6 +75,7 @@ export default function Players() {
         "Não foi possível carregar as pessoas do time selecionado."
       );
     } finally {
+      setIsLoading(false);
     }
   }
 
@@ -170,4 +174,7 @@ export default function Players() {
       />
     </Container>
   );
+}
+function setIsLoading(arg0: boolean) {
+  throw new Error("Function not implemented.");
 }
