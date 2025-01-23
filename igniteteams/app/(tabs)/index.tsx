@@ -1,4 +1,4 @@
-import Players from "@/src/screens/Players";
+import { Routes } from "../../src/routes";
 import { ThemeProvider } from "styled-components";
 import theme from "../../src/theme/theme";
 import {
@@ -19,7 +19,7 @@ export default function App() {
         backgroundColor="trasnparent"
         translucent
       />
-      {fontsLoaded ? <Players /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }
