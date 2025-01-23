@@ -9,12 +9,13 @@ import { useState, useEffect, useRef } from "react";
 import { PlayerCard } from "@/src/components/PlayerCard";
 import { ListEmpty } from "@/src/components/ListEmpty";
 import { Button } from "@/src/components/Button";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 import { AppError } from "@/src/utils/AppError";
 import { playerAddByGroup } from "@/src/storage/player/playerAddByGroup";
 import { playersGetByGroupAndTeam } from "@/src/storage/player/playersGetByGroupAndTeam";
 import { PlayerStorageDTO } from "@/src/storage/player/PlayerStorageDTO";
 import { playerRemoveByGroup } from "@/src/storage/player/playerRemoveByGroup";
+import { groupRemoveByName } from "@/src/storage/group/groupRemoveByName";
 
 type RouteParams = {
   group: string;
@@ -25,6 +26,7 @@ export default function Players() {
   const [team, setTeam] = useState("Time A");
   const [players, setPlayers] = useState<PlayerStorageDTO[]>([]);
 
+  const navigation = useNavigation();
   const route = useRoute();
   const { group } = route.params as RouteParams;
 
@@ -83,6 +85,23 @@ export default function Players() {
 
       Alert.alert("Remover pessoa", "Não foi possível remover essa pessoa.");
     }
+  }
+
+  async function groupRemove() {
+    try {
+      await groupRemoveByName(group);
+      navigation.navigate("groups");
+    } catch (error) {
+      console.log(error);
+      Alert.alert("Remover Grupo", "Não foi posível remover o grupo");
+    }
+  }
+
+  async function handleGroupRemove() {
+    Alert.alert("Remover", "Deseja remover a turma?", [
+      { text: "Não", style: "cancel" },
+      { text: "Sim", onPress: () => groupRemove() },
+    ]);
   }
 
   useEffect(() => {
@@ -144,7 +163,11 @@ export default function Players() {
         ]}
       />
 
-      <Button title="Remover turma" type="SECONDARY" />
+      <Button
+        title="Remover turma"
+        type="SECONDARY"
+        onPress={handleGroupRemove}
+      />
     </Container>
   );
 }
