@@ -1,13 +1,13 @@
 import { Routes } from "../../src/routes";
-import { ThemeProvider } from "styled-components";
-import theme from "../../src/theme/theme";
+import { ThemeProvider } from "styled-components/native";
 import {
   useFonts,
   Roboto_400Regular,
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
-import { Loading } from "@/src/components/Loading";
 import { StatusBar } from "react-native";
+import { Loading } from "@/src/components/Loading";
+import { theme } from "@/src/theme/theme";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });

@@ -1,4 +1,3 @@
-import { Highlight } from "@/src/components/Highlight";
 import { Container } from "./styles";
 import { Header } from "@/src/components/Header";
 import { GroupCard } from "@/src/components/GroupCard";
@@ -9,6 +8,7 @@ import { Button } from "@/src/components/Button";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { groupsGetAll } from "@/src/storage/group/groupsGetAll";
 import { Loading } from "@/src/components/Loading";
+import { Highlight } from "@/src/components/Highlight";
 
 export default function Groups() {
   const [isLoading, setIsLoading] = useState(true);

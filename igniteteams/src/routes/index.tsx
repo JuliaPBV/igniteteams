@@ -1,17 +1,19 @@
-import { NavigationContainer } from "@react-navigation/native";
-
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
 import { AppRoutes } from "./app.routes";
 import { View } from "react-native";
 import { useTheme } from "styled-components/native";
+
+const Stack = createNativeStackNavigator();
 
 export function Routes() {
   const { COLORS } = useTheme();
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.GRAY_600 }}>
-      <NavigationContainer>
-        <AppRoutes />
-      </NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="AppRoutes" component={AppRoutes} />
+      </Stack.Navigator>
     </View>
   );
 }

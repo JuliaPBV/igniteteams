@@ -3,18 +3,17 @@ module.exports = function (api) {
   return {
     presets: ["babel-preset-expo"],
     plugins: [
-      "@babel/plugin-transform-modules-commonjs",
       [
         "module-resolver",
         {
           root: ["./src"],
           alias: {
             "@assets": "./src/assets",
-            "@components": "./src/components",
-            "@screens": "./src/screens",
+            "@components": "./src/componentes",
+            "@sreens": "./src/sreens",
             "@storage": "./src/storage",
-            "@theme": "./src/theme",
             "@utils": "./src/utils",
+            "@theme": "./src/theme",
           },
         },
       ],
