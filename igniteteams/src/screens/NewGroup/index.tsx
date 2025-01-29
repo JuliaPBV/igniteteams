@@ -7,7 +7,14 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { groupCreate } from "@/src/storage/group/groupCreate";
 import { AppError } from "@/src/utils/AppError";
-import { Alert } from "react-native";
+import {
+  Alert,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  TouchableWithoutFeedback,
+} from "react-native";
 
 export default function NewGroup() {
   const [group, setGroup] = useState("");
@@ -33,21 +40,39 @@ export default function NewGroup() {
   }
 
   return (
-    <Container>
-      <Header showBackButton />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Container>
+          <Header showBackButton />
 
-      <Content>
-        <Icon />
+          <Content>
+            <Icon />
 
-        <Highlight
-          title="Nova turma"
-          subtitle="crie a turma para adicionar as pessoas"
-        />
+            <Highlight
+              title="Nova turma"
+              subtitle="crie a turma para adicionar as pessoas"
+            />
+            <ScrollView
+              contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
+            >
+              <Input
+                placeholder="Nome da turma"
+                onChangeText={setGroup}
+                value={group}
+              />
 
-        <Input placeholder="Nome da turma" onChangeText={setGroup} />
-
-        <Button title="Criar" style={{ marginTop: 20 }} onPress={handleNew} />
-      </Content>
-    </Container>
+              <Button
+                title="Criar"
+                style={{ marginTop: 20 }}
+                onPress={handleNew}
+              />
+            </ScrollView>
+          </Content>
+        </Container>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
