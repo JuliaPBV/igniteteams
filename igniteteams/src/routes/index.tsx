@@ -11,7 +11,7 @@ export function Routes() {
 
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.GRAY_600 }}>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="AppRoutes" component={AppRoutes} />
       </Stack.Navigator>
     </View>

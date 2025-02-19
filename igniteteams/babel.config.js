@@ -9,14 +9,15 @@ module.exports = function (api) {
           root: ["./src"],
           alias: {
             "@assets": "./src/assets",
-            "@components": "./src/componentes",
-            "@sreens": "./src/sreens",
+            "@components": "./src/components",
+            "@screens": "./src/screens",
             "@storage": "./src/storage",
             "@utils": "./src/utils",
             "@theme": "./src/theme",
           },
         },
       ],
+      "react-native-reanimated/plugin",
     ],
   };
 };

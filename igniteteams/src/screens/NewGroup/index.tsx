@@ -12,6 +12,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  Pressable,
   ScrollView,
   TouchableWithoutFeedback,
 } from "react-native";
@@ -44,7 +45,7 @@ export default function NewGroup() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{ flex: 1 }}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <Pressable onPress={Keyboard.dismiss}>
         <Container>
           <Header showBackButton />
 
@@ -72,7 +73,7 @@ export default function NewGroup() {
             </ScrollView>
           </Content>
         </Container>
-      </TouchableWithoutFeedback>
+      </Pressable>
     </KeyboardAvoidingView>
   );
 }
